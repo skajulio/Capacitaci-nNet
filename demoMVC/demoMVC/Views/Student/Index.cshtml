@@ -1,10 +1,57 @@
 ﻿
-@model demoMVC.Models.Student
+@*@using demoMVC.Models*@
+@*@Model demoMVC.Models.Student*@
+@model List<demoMVC.Models.Student>
+
+
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Nombre</h2>
+@*<h2>@Model.Nombre</h2>*@
+@*<h2>@ViewBag.Nombre</h2>
+    <h2>@ViewData["Apellido"]</h2>
+    <h2>@ViewData["Students"]</h2>*@
 
+@*@foreach (var student in ViewBag.Students)
+    {
+        <h2>@student.Nombre</h2>
+    }*@
+
+@*<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Semestre</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in (List<Student>)ViewData["Students"])
+        {
+            <tr>
+                <td>@student.Nombre</td>
+                <td>@student.Semestre</td>
+            </tr>
+        }
+    </tbody>
+</table>*@
+
+<table>
+    <thead>
+        <tr>
+            <th width="90px">Nombre</th>
+            <th width="90px">Semestre</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td align="right">@student.Nombre</td>
+                <td align="center">@student.Semestre</td>
+            </tr>
+        }
+    </tbody>
+</table>

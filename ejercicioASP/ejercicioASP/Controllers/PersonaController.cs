@@ -17,7 +17,7 @@ namespace ejercicioASP.Controllers
             persona.Id = 123;
             persona.Edad = 27;
             persona.Genero = 'H';
-            
+
             return View(persona);
         }
     }
