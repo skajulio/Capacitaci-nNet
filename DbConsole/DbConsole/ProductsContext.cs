@@ -16,5 +16,5 @@ namespace DbConsole
     {
         //Abstraccion de la base de datos (Tabla)
         public DbSet<Products> Products { get; set; }
-    }
+    }   
 }

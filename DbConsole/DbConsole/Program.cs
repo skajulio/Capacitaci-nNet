@@ -33,6 +33,7 @@ namespace DbConsole
                     Console.WriteLine(p.Id);
                     Console.WriteLine(p.Name);
                     Console.WriteLine(p.Description);
+                    Console.WriteLine(p.Contenido);
                     Console.WriteLine("");
                 }
             }
