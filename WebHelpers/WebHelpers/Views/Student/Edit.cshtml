@@ -1,0 +1,30 @@
+﻿@model WebHelpers.Models.Student
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editar Estudiante</h2>
+@using (Html.BeginForm("Edit", "Student"))
+{
+    <table>
+        <tbody>
+            <tr>
+                <td width="90px" height="40px">@Html.LabelFor(m => m.Matricula)</td>
+                <td>@Html.TextBoxFor(m => m.Matricula, new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td width="90px" height="40px">@Html.LabelFor(m => m.Nombre)</td>
+                <td>@Html.TextBoxFor(m => m.Nombre, new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td width="90px" height="40px">@Html.LabelFor(m => m.Edad)</td>
+                <td>@Html.TextBoxFor(m => m.Edad, new { @class = "form-control" })</td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="submit" value="Guardar" />
+}
+
+

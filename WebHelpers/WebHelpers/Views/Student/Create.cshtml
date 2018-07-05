@@ -1,0 +1,34 @@
+﻿@model List<WebHelpers.Models.Student>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*------------------------------Ejemplos de HTML Helpers---------------------------------*@
+@*@Html.Label("Esto es una etiqueta")
+    @Html.TextBox("Este es un textbox", null, new { @class="form-control" })
+    @Html.CheckBox("Es verdadero")*@
+@*@Html.RadioButton("Radio button")*@
+@*@Html.ActionLink("Ir a", "Action", "Controlador", new {id=1})*@
+
+<h1>Registrar Estudiante</h1>
+
+@using (Html.BeginForm("Create", "Student"))
+{
+    <table>
+        <tbody>
+            <tr>
+                <td width="90px" height="40px">@Html.Label("Matricula")</td>
+                <td>@Html.TextBox("Matricula")</td>
+            </tr>
+            <tr>
+                <td width="90px" height="40px">@Html.Label("Nombre")</td>
+                <td>@Html.TextBox("Nombre")</td>
+            </tr>
+            <tr>
+                <td width="90px" height="40px">@Html.Label("Edad")</td>
+                <td>@Html.TextBox("Edad")</td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="submit" value="Guardar" />
+}

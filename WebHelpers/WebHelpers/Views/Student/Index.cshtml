@@ -1,0 +1,32 @@
+﻿@model List<WebHelpers.Models.Student>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<h1>Estudiantes</h1>
+<table>
+    <thead>
+        <tr>
+            <th width="90px">Matricula</th>
+            <th width="90px">Nombre</th>
+            <th width="90px">Edad</th>
+            <th width="90px"><a href="~/Student/Create">Registrar</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Matricula</td>
+                <td>@student.Nombre</td>
+                <td>@student.Edad</td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { matricula = student.Matricula })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
