@@ -13,7 +13,9 @@
             <th width="90px">Matricula</th>
             <th width="90px">Nombre</th>
             <th width="90px">Edad</th>
-            <th width="90px"><a href="~/Student/Create">Registrar</a></th>
+            <th width="90px">Curso</th>
+            <th width="90px">@Html.ActionLink("Crear", "Create")</th>
+            <th width="90px">Eliminar</th>
         </tr>
     </thead>
     <tbody>
@@ -23,8 +25,12 @@
                 <td>@student.Matricula</td>
                 <td>@student.Nombre</td>
                 <td>@student.Edad</td>
+                <td>@student.CurseId</td>
                 <td>
                     @Html.ActionLink("Editar", "Edit", new { matricula = student.Matricula })
+                </td>
+                <td>
+                    @Html.ActionLink("Eliminar", "Delete", new { matricula = student.Matricula})
                 </td>
             </tr>
         }

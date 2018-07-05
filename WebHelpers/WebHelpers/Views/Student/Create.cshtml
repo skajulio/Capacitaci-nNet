@@ -1,4 +1,6 @@
-﻿@model List<WebHelpers.Models.Student>
+﻿@*@model List<WebHelpers.Models.Student>*@
+@*@model WebHelpers.Models.Student*@
+@model WebHelpers.Models.StudentViewModel
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -17,16 +19,52 @@
     <table>
         <tbody>
             <tr>
-                <td width="90px" height="40px">@Html.Label("Matricula")</td>
-                <td>@Html.TextBox("Matricula")</td>
+                @*<td width="90px" height="40px">@Html.Label("Matricula")</td>
+            <td>@Html.TextBox("Matricula")</td>*@
+
+                <td width="90px" height="40px">
+                    @Html.LabelFor(m => m.student.Matricula)
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.student.Matricula)
+                    @Html.ValidationMessageFor(m => m.student.Matricula)
+
+                </td>
             </tr>
             <tr>
-                <td width="90px" height="40px">@Html.Label("Nombre")</td>
-                <td>@Html.TextBox("Nombre")</td>
+                @*<td width="90px" height="40px">@Html.Label("Nombre")</td>
+            <td>@Html.TextBox("Nombre")</td>*@
+
+                <td width="90px" height="40px">
+                    @Html.LabelFor(m => m.student.Nombre)
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.student.Nombre)
+                    @Html.ValidationMessageFor(m => m.student.Nombre)
+                </td>
             </tr>
             <tr>
-                <td width="90px" height="40px">@Html.Label("Edad")</td>
-                <td>@Html.TextBox("Edad")</td>
+                @*<td width="90px" height="40px">@Html.Label("Edad")</td>
+            <td>@Html.TextBox("Edad")</td>*@
+
+                <td width="90px" height="40px">
+                    @Html.LabelFor(m => m.student.Edad)
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.student.Edad)
+                    @Html.ValidationMessageFor(m => m.student.Edad)
+                </td>
+            </tr>
+
+            <tr>
+                <td width="90px" height="40px">
+                    @Html.LabelFor(m => m.student.CurseId)
+                </td>
+                <td>
+                    @*@Html.DropDownListFor(m => m.student.CurseId, new SelectList(ViewBag.Cursos, "Id", "Nombre"))*@
+                    @Html.DropDownListFor(m => m.student.CurseId, new SelectList(Model.Cursos, "Id", "Nombre"))
+                    @Html.ValidationMessageFor(m => m.student.CurseId)
+                </td>
             </tr>
         </tbody>
     </table>

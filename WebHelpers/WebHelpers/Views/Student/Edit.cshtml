@@ -22,6 +22,11 @@
                 <td width="90px" height="40px">@Html.LabelFor(m => m.Edad)</td>
                 <td>@Html.TextBoxFor(m => m.Edad, new { @class = "form-control" })</td>
             </tr>
+            <tr>
+                <td width="90px" height="40px">@Html.LabelFor(m => m.CurseId)</td>
+                @Html.DropDownListFor(m => m.CurseId, new SelectList(ViewBag.Cursos, "Id", "Nombre"))
+                @*<td>@Html.TextBoxFor(m => m.CurseId, new { @class = "form-control" })</td>*@
+            </tr>
         </tbody>
     </table>
     <input type="submit" value="Guardar" />

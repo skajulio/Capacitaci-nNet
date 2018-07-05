@@ -1,0 +1,28 @@
+﻿@model WebHelpers.Models.Student
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <h2>Eliminar Alumno</h2>
+    @using (Html.BeginForm("Delete", "Student"))
+    {
+        @Html.HiddenFor(m => m.Matricula)
+        @Html.HiddenFor(m => m.Nombre)
+        @Html.HiddenFor(m => m.Edad)
+        <div class="form-group">
+            <p>
+                ¿Está usted deguro que desea dar de baja este alumno con la siguiente patrícula?:
+                @Html.LabelFor(m => m.Matricula)
+            </p>
+            <p>
+                @Html.ActionLink("Cancelar", "Index")
+                <input type="submit" value="Aceptar"/>
+            </p>
+        </div>
+    }
+
+</div>
+
