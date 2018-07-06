@@ -1,0 +1,24 @@
+﻿@model LabBlog.Models.PostViewModel
+@{
+    ViewBag.Title = "DeletePost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <h2>Eliminar Post</h2>
+    @using (Html.BeginForm("DeletePost", "Blog"))
+    {
+        <div class="form-group">
+            <p>
+                ¿Está usted deguro que desea eliminar el siguiente post?<br />
+                @Html.LabelFor(m => m.post.Titulo)
+            </p>
+            <p>
+                @Html.ActionLink("Cancelar", "Index")
+                <input type="submit" value="Aceptar" />
+            </p>
+        </div>
+    }
+
+</div>

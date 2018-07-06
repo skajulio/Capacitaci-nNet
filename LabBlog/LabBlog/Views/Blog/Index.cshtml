@@ -1,0 +1,35 @@
+﻿@model List<LabBlog.Models.Post>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Blog de Películas</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th width="90px">Titulo</th>
+            <th width="90px">Categoría</th>
+            <th width="90px">Fecha</th>
+            <th width="90px">@Html.ActionLink("Nuevo Post", "ControlPost")</th>
+            <th width="90px">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var post in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink($"{@post.Titulo}", "ViewPost", new { Id = post.Titulo}) </td>
+                <td>@post.IdCategoría</td>
+                <td>@post.Fecha</td>
+                <td>
+                    @Html.ActionLink("Editar", "ControlPost", new { Id = post.Id })
+                </td>
+                <td>
+                    @Html.ActionLink("Eliminar", "DeletePost", new { Id = post.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,31 @@
+﻿@model LabBlog.Models.PostViewModel
+@{
+    ViewBag.Title = "NewPost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Publicar Post</h1>
+@using (Html.BeginForm("ControlPost", "Blog"))
+{
+    @Html.HiddenFor(m => m.post.Id)
+    <ul>
+        <li>
+            @Html.LabelFor(m => m.post.Titulo)
+            <br />
+            @Html.TextBoxFor(m => m.post.Titulo)
+        </li>
+        <li>
+            @Html.LabelFor(m => m.post.IdCategoría)
+            <br />
+            @Html.DropDownListFor(m => m.post.IdCategoría, new SelectList(Model.ListaCategorias, "Id", "Nombre"))
+        </li>
+        <li>
+            @Html.LabelFor(m => m.post.Descripcion)
+            <br />
+            @Html.TextBoxFor(m => m.post.Descripcion, new { style = "max-width:800px; height:100px; width:800px" })
+        </li>
+    </ul>
+    <input type="submit" value="Publicar" />
+}
+
+
