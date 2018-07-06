@@ -10,9 +10,9 @@ namespace WebHelpers.DummyDB
     {
         public static List<Student> Students = new List<Student>
         {
-            new Student { Matricula = 123, Nombre = "Julio", Edad = 27, CurseId=1 },
-            new Student { Matricula = 456, Nombre = "Jairo", Edad = 25, CurseId=1 },
-            new Student { Matricula = 789, Nombre = "Franco", Edad = 21, CurseId=1 },
+            new Student { Id = 123, Nombre = "Julio", Edad = 27, CurseId=1 },
+            new Student { Id = 456, Nombre = "Jairo", Edad = 25, CurseId=1 },
+            new Student { Id = 789, Nombre = "Franco", Edad = 21, CurseId=1 },
         };
 
         public static List<Curso> Cursos = new List<Curso>

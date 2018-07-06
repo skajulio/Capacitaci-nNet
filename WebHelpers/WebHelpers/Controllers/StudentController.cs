@@ -11,11 +11,12 @@ namespace WebHelpers.Controllers
     public class StudentController : Controller
     {
         // GET: Student
-        public ActionResult Index()
-        {
-            List<Student> Students = Db.Students;
-            return View(Students);
-        }
+        //Se comenta para implementarse en Entity Framework (Ver mas abajo)
+        //public ActionResult Index()
+        //{
+        //    List<Student> Students = Db.Students;
+        //    return View(Students);
+        //}
 
         //public ActionResult Create()
         //{
@@ -43,54 +44,55 @@ namespace WebHelpers.Controllers
             return View(studentVM);
         }
 
-        [HttpPost]
-        public ActionResult Create(StudentViewModel NewStudent)
-        {
-            if (ModelState.IsValid)
-            {
-                Db.Students.Add(NewStudent.student);
+        //Se comenta para trabajar este ActionResult para Entity Framework (Ver mas abajo)
+        //[HttpPost]
+        //public ActionResult Create(StudentViewModel NewStudent)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        Db.Students.Add(NewStudent.student);
 
-                return RedirectToAction("Index");
-            }
-            return View(NewStudent);
-        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(NewStudent);
+        //}
 
-        [HttpGet]//Solo por Get
-        public ActionResult Edit(int matricula)
-        {
-            List<Student> students = Db.Students;
-            Student student = students.First(s => s.Matricula == matricula);//Expresion Lambda
-            return View(student);
+        //Se comenta para migrar a Entity Framework (ver mas abajo)
+        //[HttpGet]//Solo por Get
+        //public ActionResult Edit(int matricula)
+        //{
+        //    List<Student> students = Db.Students;
+        //    Student student = students.First(s => s.Id == matricula);//Expresion Lambda
+        //    return View(student);
+        //}
 
-
-
-        }
-
-        [HttpPost]//Unicamente permite Post
-        public ActionResult Edit(Student student)
-        {
-            int index = Db.Students.FindIndex(s => s.Matricula == student.Matricula);
-            Db.Students[index].Nombre = student.Nombre;
-            Db.Students[index].Edad = student.Edad;
-            Db.Students[index].CurseId = student.CurseId;
+        //[HttpPost]//Unicamente permite Post
+        //public ActionResult Edit(Student student)
+        //{
+        //    int index = Db.Students.FindIndex(s => s.Id == student.Id);
+        //    Db.Students[index].Nombre = student.Nombre;
+        //    Db.Students[index].Edad = student.Edad;
+        //    Db.Students[index].CurseId = student.CurseId;
 
 
-            return RedirectToAction("Index");
-        }
+        //    return RedirectToAction("Index");
+        //}
 
         public ActionResult Delete(int matricula)
         {
-            Student student = Db.Students.First(s => s.Matricula == matricula);
+            Student student = Db.Students.First(s => s.Id == matricula);
             return View();
         }
 
         [HttpPost]
         public ActionResult Delete(Student student)
         {
-            Db.Students.RemoveAll(s => s.Matricula == student.Matricula);
+            Db.Students.RemoveAll(s => s.Id == student.Id);
 
             return RedirectToAction("Index");
         }
+
+
 
         //public List<Student> CrearEstudiante(int Matricula, string Nombre, int Edad)
         //{
@@ -98,5 +100,60 @@ namespace WebHelpers.Controllers
         //    ListaEstudiantes.Add(Matricula);
         //    return ListaEstudiantes;
         //}
+
+
+        //-------------------------------- Entity Framework ------------------------------------------
+        //Este s el equivalente a program en el ejercicio de DBConsole
+        [HttpPost]
+        public ActionResult Create(StudentViewModel NewStudent)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var db = new StudentContext())
+                {
+                    db.Students.Add(NewStudent.student);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            return View(NewStudent);
+        }
+
+        //Consuta a la base de datos
+        public ActionResult Index()
+        {
+            using (var db = new StudentContext())
+            {
+                List<Student> ListStudents = db.Students.ToList();
+                return View(ListStudents);
+            }
+        }
+
+
+        [HttpGet]//Solo por Get
+        public ActionResult Edit(int matricula)
+        {
+            using(var db = new StudentContext())
+            {
+                StudentViewModel studentVM = new StudentViewModel();
+                studentVM.student = db.Students.First(s => s.Id == matricula);
+                return View(studentVM);
+            }
+        }
+
+        [HttpPost]//Unicamente permite Post
+        public ActionResult Edit(Student student)
+        {
+            using(var db = new StudentContext())
+            {
+                Student UpdateStudent = db.Students.FirstOrDefault(s => s.Id == student.Id);
+                UpdateStudent.Id = student.Id;
+                UpdateStudent.Nombre = student.Nombre;
+                UpdateStudent.Edad = student.Edad;
+                UpdateStudent.CurseId = student.CurseId;
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

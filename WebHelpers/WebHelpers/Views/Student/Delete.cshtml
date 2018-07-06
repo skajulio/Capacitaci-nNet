@@ -9,13 +9,13 @@
     <h2>Eliminar Alumno</h2>
     @using (Html.BeginForm("Delete", "Student"))
     {
-        @Html.HiddenFor(m => m.Matricula)
+        @Html.HiddenFor(m => m.Id)
         @Html.HiddenFor(m => m.Nombre)
         @Html.HiddenFor(m => m.Edad)
         <div class="form-group">
             <p>
                 ¿Está usted deguro que desea dar de baja este alumno con la siguiente patrícula?:
-                @Html.LabelFor(m => m.Matricula)
+                @Html.LabelFor(m => m.Id)
             </p>
             <p>
                 @Html.ActionLink("Cancelar", "Index")

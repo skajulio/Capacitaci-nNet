@@ -23,11 +23,11 @@
             <td>@Html.TextBox("Matricula")</td>*@
 
                 <td width="90px" height="40px">
-                    @Html.LabelFor(m => m.student.Matricula)
+                    @Html.LabelFor(m => m.student.Id)
                 </td>
                 <td>
-                    @Html.TextBoxFor(m => m.student.Matricula)
-                    @Html.ValidationMessageFor(m => m.student.Matricula)
+                    @Html.TextBoxFor(m => m.student.Id)
+                    @Html.ValidationMessageFor(m => m.student.Id)
 
                 </td>
             </tr>

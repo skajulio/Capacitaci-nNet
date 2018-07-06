@@ -4,12 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
+
 namespace WebHelpers.Models
 {
     public class Student
     {
         [Required(ErrorMessage = "La matricula es requerida")]
-        public int Matricula { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "El nombre es obligatorio")]
         [StringLength(50, ErrorMessage = "La longitud máxima es de 50 caracteres")]
