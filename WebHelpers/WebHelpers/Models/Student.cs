@@ -19,6 +19,8 @@ namespace WebHelpers.Models
         [Required(ErrorMessage = "La edad es obligatoria")]
         public int Edad { get; set; }
         
+        [Required]
         public int CurseId { set; get; }
+        public Curso Curso { get; set; }
     }
 }

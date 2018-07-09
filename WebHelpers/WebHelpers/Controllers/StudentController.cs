@@ -122,29 +122,40 @@ namespace WebHelpers.Controllers
         //Consuta a la base de datos
         public ActionResult Index()
         {
+            List<Student> ListStudents = new List<Student>();
             using (var db = new StudentContext())
             {
-                List<Student> ListStudents = db.Students.ToList();
-                return View(ListStudents);
+                ListStudents = db.Students.Include("Curso").ToList();
             }
+            return View(ListStudents);
         }
 
 
         [HttpGet]//Solo por Get
         public ActionResult Edit(int matricula)
         {
+            Student student = new Student();
             using(var db = new StudentContext())
             {
-                StudentViewModel studentVM = new StudentViewModel();
-                studentVM.student = db.Students.First(s => s.Id == matricula);
-                return View(studentVM);
+                student=db.Students.FirstOrDefault(s => s.Id == matricula);
             }
+            return View(student);
+
+
+
+            //StudentViewModel studentVM = new StudentViewModel();
+            //using (var db = new StudentContext())
+            //{
+            //    studentVM.student = db.Students.First(s => s.Id == matricula);
+            //}
+            //return View(studentVM);
+
         }
 
         [HttpPost]//Unicamente permite Post
         public ActionResult Edit(Student student)
         {
-            using(var db = new StudentContext())
+            using (var db = new StudentContext())
             {
                 Student UpdateStudent = db.Students.FirstOrDefault(s => s.Id == student.Id);
                 UpdateStudent.Id = student.Id;

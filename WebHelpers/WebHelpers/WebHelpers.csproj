@@ -165,6 +165,18 @@
     <Compile Include="Migrations\201807052118048_InitialCreate.Designer.cs">
       <DependentUpon>201807052118048_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807091645559_CrearTablaCurso.cs" />
+    <Compile Include="Migrations\201807091645559_CrearTablaCurso.Designer.cs">
+      <DependentUpon>201807091645559_CrearTablaCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807091647226_AgregarCursos.cs" />
+    <Compile Include="Migrations\201807091647226_AgregarCursos.Designer.cs">
+      <DependentUpon>201807091647226_AgregarCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807091739250_Back.cs" />
+    <Compile Include="Migrations\201807091739250_Back.Designer.cs">
+      <DependentUpon>201807091739250_Back.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Curso.cs" />
     <Compile Include="Models\Registrar.cs" />
@@ -235,6 +247,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807052118048_InitialCreate.resx">
       <DependentUpon>201807052118048_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807091645559_CrearTablaCurso.resx">
+      <DependentUpon>201807091645559_CrearTablaCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807091647226_AgregarCursos.resx">
+      <DependentUpon>201807091647226_AgregarCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807091739250_Back.resx">
+      <DependentUpon>201807091739250_Back.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

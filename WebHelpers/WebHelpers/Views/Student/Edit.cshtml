@@ -1,4 +1,4 @@
-﻿@model WebHelpers.Models.StudentViewModel
+﻿@model WebHelpers.Models.Student
 
 @{
     ViewBag.Title = "Edit";
@@ -11,21 +11,21 @@
     <table>
         <tbody>
             <tr>
-                <td width="90px" height="40px">@Html.LabelFor(m => m.student.Id)</td>
-                <td>@Html.TextBoxFor(m => m.student.Id, new { @class = "form-control" })</td>
+                <td width="90px" height="40px">@Html.LabelFor(m => m.Id)</td>
+                <td>@Html.TextBoxFor(m => m.Id, new { @class = "form-control" })</td>
             </tr>
             <tr>
-                <td width="90px" height="40px">@Html.LabelFor(m => m.student.Nombre)</td>
-                <td>@Html.TextBoxFor(m => m.student.Nombre, new { @class = "form-control" })</td>
+                <td width="90px" height="40px">@Html.LabelFor(m => m.Nombre)</td>
+                <td>@Html.TextBoxFor(m => m.Nombre, new { @class = "form-control" })</td>
             </tr>
             <tr>
-                <td width="90px" height="40px">@Html.LabelFor(m => m.student.Edad)</td>
-                <td>@Html.TextBoxFor(m => m.student.Edad, new { @class = "form-control" })</td>
+                <td width="90px" height="40px">@Html.LabelFor(m => m.Edad)</td>
+                <td>@Html.TextBoxFor(m => m.Edad, new { @class = "form-control" })</td>
             </tr>
             <tr>
-                <td width="90px" height="40px">@Html.LabelFor(m => m.student.CurseId)</td>
+                <td width="90px" height="40px">@Html.LabelFor(m => m.Curso.Id)</td>
                 <td>
-                    @Html.DropDownListFor(m => m.student.CurseId, new SelectList(Model.Cursos, "Id", "Nombre"))
+                    @Html.DropDownListFor(m => m.CurseId, new SelectList(Model.Curso.Nombre, "Id", "Nombre"))
                 </td>
             </tr>
         </tbody>

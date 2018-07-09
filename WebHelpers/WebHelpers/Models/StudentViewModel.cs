@@ -10,6 +10,7 @@ namespace WebHelpers.Models
     {
         public Student student { get; set; }
         public List<Curso> Cursos { get; set; }
+
         public StudentViewModel()
         {
             this.Cursos = Db.Cursos;
