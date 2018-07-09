@@ -1,0 +1,22 @@
+[
+	{
+		"Id":1,
+		"Name":"Pepe",
+		"Age":20,
+		"CourseId":1,
+		"Course":{
+			"Id":1,
+			"Name":"Arnold C",
+		}
+	},
+	{
+		"Id":2,
+		"Name":"Pecas",
+		"Age":22,
+		"CourseId":2,
+		"Course":{
+			"Id":2,
+			"Name":"Angular",
+		}
+	}
+]
