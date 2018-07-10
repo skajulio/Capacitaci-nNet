@@ -14,5 +14,6 @@ namespace WebHelpers.DummyDB
     public class StudentContext : DbContext
     {
         public DbSet<Student> Students { get; set; }
+        public DbSet<Curso> Cursos { get; set; }
     }
 }

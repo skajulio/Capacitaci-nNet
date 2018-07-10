@@ -13,7 +13,11 @@ namespace WebHelpers.Models
 
         public StudentViewModel()
         {
-            this.Cursos = Db.Cursos;
+            using (var db = new StudentContext())
+            {
+                this.Cursos = db.Cursos.ToList();
+            }
+            //this.Cursos = Db.Cursos;
         }
     }
 }
